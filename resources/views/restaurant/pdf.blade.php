@@ -9,18 +9,18 @@
 </head>
 
 <body>
-  <h1> Reservoir: {{$member->reservoirOfMember->title}} </h1>
+  <h1> Menu: {{$restaurant->menuOfRestaurant->title}} </h1>
   <div class="form-group">
-    <label>Name: </label>
-    <small class="form-text text-muted"> {{$member->name}}</small>
+    <label>Title: </label>
+    <small class="form-text text-muted"> {{$restaurant->title}}</small>
   </div>
   <div class="form-group">
-    <label> Surname: </label>
-    <small class="form-text text-muted"> {{$member->surname}}</small>
+    <label> Customers: </label>
+    <small class="form-text text-muted"> {{$restaurant->customers}}</small>
   </div>
   <div class="form-group">
-    <label> Live: </label>
-    <small class="form-text text-muted"> {{$member->live}}</small>
+    <label> Employees: </label>
+    <small class="form-text text-muted"> {{$restaurant->employees}}</small>
   </div>
 </body>
 

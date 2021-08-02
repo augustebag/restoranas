@@ -4,22 +4,22 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">{{$member->reservoirOfMember->title}}</div>
+        <div class="card-header">{{$restaurant->menuOfRestaurant->title}}</div>
         <div class="card-body">
           <div class="form-group">
-            <label>Member Name</label>
-            <small class="form-text text-muted">{{$member->name}}</small>
+            <label>Restaurant Title</label>
+            <small class="form-text text-muted">{{$restaurant->title}}</small>
           </div>
           <div class="form-group">
-            <label>Member Surname</label>
-            <small class="form-text text-muted">{{$member->surname}}</small>
+            <label> Customers</label>
+            <small class="form-text text-muted">{{$restaurant->customers}}</small>
           </div>
           <div class="form-group">
-            <label> Live</label>
-            <small class="form-text text-muted"> {{$member->live}}</small>
+            <label> Employees</label>
+            <small class="form-text text-muted"> {{$restaurant->employees}}</small>
           </div>
-          <a href="{{route('member.edit',[$member])}}" class="btn btn-outline-dark btn-sm">Edit</a>
-          <a href="{{route('member.pdf',[$member])}}" class="btn btn-outline-dark btn-sm">PDF</a>
+          <a href="{{route('restaurant.edit',[$restaurant])}}" class="btn btn-outline-dark btn-sm">Edit</a>
+          <a href="{{route('restaurant.pdf',[$restaurant])}}" class="btn btn-outline-dark btn-sm">PDF</a>
         </div>
       </div>
     </div>
@@ -33,4 +33,4 @@
 
 @endsection
 
-@section('title') Member @endsection
+@section('title') Restaurant @endsection

@@ -4,42 +4,31 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">New Member</div>
+        <div class="card-header">New Restaurant</div>
 
         <div class="card-body">
-          <form method="POST" action="{{route('member.store')}}">
+          <form method="POST" action="{{route('restaurant.store')}}">
             <div class="form-group">
-              <label>Name:</label>
-              <input type="text" class="form-control" name="member_name" value="{{old('member_name')}}">
-              <small class="form-text text-muted">Name.</small>
+              <label>Title:</label>
+              <input type="text" class="form-control" name="restaurant_title" value="{{old('restaurant_title')}}">
+              <small class="form-text text-muted">Title.</small>
             </div>
 
             <div class="form-group">
-              <label>Surname:</label>
-              <input type="text" class="form-control" name="member_surname" value="{{old('member_surname')}}">
-              <small class="form-text text-muted">Surname.</small>
+              <label>Customers:</label>
+              <input type="text" class="form-control" name="restaurant_customers" value="{{old('restaurant_cutomers')}}">
+              <small class="form-text text-muted">Customers.</small>
             </div>
 
             <div class="form-group">
-              <label>Live:</label>
-              <input type="text" class="form-control" name="member_live" value="{{old('member_live')}}">
-              <small class="form-text text-muted">Live.</small>
+              <label>Employees:</label>
+              <input type="text" class="form-control" name="restaurant_employees" value="{{old('restaurant_employees')}}">
+              <small class="form-text text-muted">Employees.</small>
             </div>
 
-              <div class="form-group">
-                <label>Experience:</label>
-                <input type="text" class="form-control" name="member_experience" value="{{old('member_experience')}}">
-                <small class="form-text text-muted">Experience.</small>
-              </div>
-              <div class="form-group">
-                <label>Registered:</label>
-                <input type="text" class="form-control" name="member_registered" value="{{old('member_registered')}}">
-                <small class="form-text text-muted">Registered.</small>
-              </div>
-
-            <select name="reservoir_id">
-              @foreach ($reservoirs as $reservoir)
-              <option value="{{$reservoir->id}}">{{$reservoir->title}}</option>
+            <select name="menu_id">
+              @foreach ($menus as $menu)
+              <option value="{{$menu->id}}">{{$menu->title}}</option>
               @endforeach
             </select>
             @csrf
@@ -56,4 +45,4 @@
        });
   </script>
 @endsection
-@section('title') Members @endsection
+@section('title') Restaurant @endsection

@@ -6,45 +6,45 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h2>Members</h2>
+          <h2>Restaurant</h2>
           <div class="row">
-            <form action="{{route('member.index')}}" method="get">
+            <form action="{{route('restaurant.index')}}" method="get">
               <fieldset>
                 <legend>Sort by: </legend>
                 <div>
-                  <label>Name </label>
-                  <input type="radio" name="sort_by" value="name" @if('name'==$sort) checked @endif>
+                  <label>Title </label>
+                  <input type="radio" name="sort_by" value="title" @if('title'==$sort) checked @endif>
 
-                  <label>Surname </label>
-                  <input type="radio" name="sort_by" value="surname" @if('surname'==$sort) checked @endif>
+                  <label>Price </label>
+                  <input type="radio" name="sort_by" value="price" @if('price'==$sort) checked @endif>
                 </div>
               </fieldset>
               <button type="submit" class="btn btn-sm btn-outline-dark">Sort</button>
-              <a href="{{route('member.index')}}" class="btn btn-outline-danger btn-sm">Clear</a>
+              <a href="{{route('restaurant.index')}}" class="btn btn-outline-danger btn-sm">Clear</a>
             </form>
-            <form action="{{route('member.index')}}" method="get">
+            <form action="{{route('restaurant.index')}}" method="get">
               <fieldset>
                 <legend>Filter by: </legend>
                 <div>
-                  <select name="reservoir_id" class="form-control">
-                    @foreach($reservoirs as $reservoir)
-                  <option value="{{$reservoir->id}}" @if($defaultReservoir == $reservoir->id) selected @endif>
-                    {{$reservoir->title}}
+                  <select name="menu_id" class="form-control">
+                    @foreach($menus as $menu)
+                  <option value="{{$menu->id}}" @if($defaultMenu == $menu->id) selected @endif>
+                    {{$menu->title}}
                   </option>
                   @endforeach
                   </select>
                 </div>
               </fieldset>
               <button type="submit" class="btn btn-sm btn-outline-dark">Filter</button>
-              <a href="{{route('member.index')}}" class="btn btn-outline-danger btn-sm">Clear</a>
+              <a href="{{route('restaurant.index')}}" class="btn btn-outline-danger btn-sm">Clear</a>
             </form>
-            <form action="{{route('member.index')}}" method="get" class="sort-form">
+            <form action="{{route('restaurant.index')}}" method="get" class="sort-form">
               <fieldset>
                 <legend>Search: </legend>
                 <input type="search" class="form-control mr-sm-2 search" placeholder="Search" aria-label="Search"
                   name="s">
                 <button class="btn btn-sm btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                <a href="{{route('member.index')}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0">Clear</a>
+                <a href="{{route('restaurant.index')}}" class="btn btn-sm btn-outline-danger my-2 my-sm-0">Clear</a>
               </fieldset>
             </form>
           </div>
@@ -55,29 +55,25 @@
       <table class="table table-striped table-dark">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Live</th>
-            <th scope="col">Experience</th>
-            <th scope="col">Registered</th>
+            <th scope="col">Title</th>
+            <th scope="col">Customers</th>
+            <th scope="col">Employees</th>
             <th scope="col">Title</th>
             <th scope="col">*</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($members as $member)
+          @foreach ($restaurants as $restaurant)
           <tr>
-            <td>{{$member->name}}</td>
-            <td>{{$member->surname}}</td>
-            <td>{{$member->live}}</td>
-            <td>{{$member->experience}}</td>
-            <td>{{$member->registered}}</td>
-            <td>{{$member->reservoirOfMember->title}}</td>
+            <td>{{$restaurant->title}}</td>
+            <td>{{$restaurant->customers}}</td>
+            <td>{{$restaurant->employees}}</td>
+            <td>{{$restaurant->menuOfRestaurant->title}}</td>
             <td class="list-container__buttons">
-              <form method="POST" action="{{route('member.destroy', [$member])}}">
+              <form method="POST" action="{{route('restaurant.destroy', [$restaurant])}}">
                 @csrf
-                <a href="{{route('member.show',[$member])}}" class="btn btn-outline-success btn-sm">More info</a>
-                <a href="{{route('member.edit',[$member])}}" class="btn btn-outline-success btn-sm">Edit</a>
+                <a href="{{route('restaurant.show',[$restaurant])}}" class="btn btn-outline-success btn-sm">More info</a>
+                <a href="{{route('restaurant.edit',[$restaurant])}}" class="btn btn-outline-success btn-sm">Edit</a>
                 <button type="submit" class="btn btn-outline-danger btn-sm">DELETE</button>
               </form>
             </td>
@@ -85,7 +81,7 @@
           @endforeach
         </tbody>
       </table>
-      {{$members->links()}}
+      {{$restaurants->links()}}
     </div>
   </div>
 </div>
